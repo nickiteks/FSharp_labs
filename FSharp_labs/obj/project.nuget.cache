@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4OhcG/a3wgd9zrbFwfBE5urSEhTeBzTPuLdH6sZ5ujJ+VQvvDwHaCpV+GQidz8fLtdjlEEfq2t4yeKC8/Bpbew==",
+  "success": true,
+  "projectFilePath": "/Users/nikita/RiderProjects/FSharp_labs/FSharp_labs/FSharp_labs.fsproj",
+  "expectedPackageFiles": [
+    "/Users/nikita/.nuget/packages/fsharp.core/5.0.0/fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
