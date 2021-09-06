@@ -12,11 +12,9 @@ let lab1(number: int) =
 let splitText (s:string) = s.Split(" ,:-.!?;()\t\r\n".ToCharArray(), System.StringSplitOptions.RemoveEmptyEntries)
 
 let lab2(s:string) =
-      let words = splitText s
-      let mutable minWord = string(words.GetValue(1))
-      for i in words do
-            if i.Length < minWord.Length then minWord <- i
-      printf "The shortest word is: %s" minWord
+      let words = splitText s|>Array.toList
+      let result = List.sortBy (fun (x:string) -> x.Length) words
+      printf "The shortest word is: %s" result.[0]
 let text = System.IO.File.ReadAllText("/Users/nikita/Desktop/Всякая маковская хрень/ФП/lab2.txt",Encoding.UTF8)
  
 lab2 text
