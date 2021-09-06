@@ -3,12 +3,10 @@ open System.Text
 open System.Text.Unicode
 
 let lab1(number: int) =   
-      let mutable sum = 0
-      for i in 1..number do
-            if i % 4 = 0  then
-                  sum <- sum + i
-                  printfn "Number %i Sum = %i" i sum
-      printf "Result: %i" sum
+      [1..number]
+      |>List.filter(fun x -> x % 4  = 0)
+      |>List.sumBy(int)
+      |>printf "%i"
             
 //lab1(100)
 let splitText (s:string) = s.Split(" ,:-.!?;()\t\r\n".ToCharArray(), System.StringSplitOptions.RemoveEmptyEntries)
