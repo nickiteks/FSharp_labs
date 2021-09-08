@@ -17,6 +17,14 @@ let lab2(s:string) =
       printf "The shortest word is: %s" result.[0]
 let text = System.IO.File.ReadAllText("/Users/nikita/Desktop/Всякая маковская хрень/ФП/lab2.txt",Encoding.UTF8)
  
-lab2 text
+//lab2 text
+
+let lab3 =
+      let array = [|1;2;3;4;5;6;7;8;9|]
+      for i in 0 .. array.Length - 1  do
+            if array.[i] % 2 > 0 then
+                  Array.set array i (array.[i]+10)
+      printf "%A" array     
+//lab3
 
 Console.ReadKey() |> ignore
