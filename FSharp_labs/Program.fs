@@ -1,22 +1,30 @@
 ﻿open System
+open System.IO
 open System.Text
 open System.Text.Unicode
 
-[<AbstractClass>]
-type Person(name) = 
-    member val Name = name with get,set
- 
-type Patient(name) = 
-    inherit Person(name)
-    
-type Doctor(name) =
-    inherit Person(name)
-    
-    
-let patient1 = Patient("Bob")
-let Doctor1 = Doctor("Nikita")
+let files = [
+      "/Users/nikita/Desktop/files/file1.txt"
+      "/Users/nikita/Desktop/files/file2.txt"
+      "/Users/nikita/Desktop/files/file3.txt"
+      "/Users/nikita/Desktop/files/file4.txt"
+      "/Users/nikita/Desktop/files/file5.txt"
+]
 
-let addDoctor =
-    printf "doctor %s " Doctor1.Name
-    printf "work with "
-    printf "patient %s" patient1.Name
+
+let splitText (s:string) = s.Split(" ,:-.!?;()\t\r\n".ToCharArray(), System.StringSplitOptions.RemoveEmptyEntries)
+
+let lab2 file =
+      async{
+            let s = System.IO.File.ReadAllText(file,Encoding.UTF8)
+            let words = splitText s|>Array.toList
+            let result = List.sortBy (fun (x:string) -> x.Length) words
+            printf " %s " result.[0]
+      }
+      
+
+files
+|>List.map lab2
+|>Async.Parallel
+|>Async.RunSynchronously
+|> ignore
